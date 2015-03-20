@@ -1,0 +1,132 @@
+<!doctype>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>后台登录</title>
+            <!-- 最新 Bootstrap 核心 CSS 文件 -->
+            <link rel="stylesheet" href="Public/bootstrap/css/bootstrap.min.css">
+            <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            <script src="Public/bootstrap/js/jquery.min.js"></script>
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+            <script src="Public/bootstrap/js/bootstrap.min.js"></script>
+            <style>
+                #row {
+                    margin-top: 20px;                    
+                }
+                #table {
+                    font-size: 12px;
+                }
+            </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row" id="row">
+                <table class="table" id="table">
+                    <tr>
+                        <th>id</th>
+                        <th>影片名称</th>
+                        <th>影片状态</th>
+                        <th>播放次数</th>
+                        <th>播放时长</th>
+                        <th>影片标签</th>
+                        <th>操作</th>
+                    </tr>
+					<?php $rand = array('label-default','label-primary','label-success','label-info','label-warning')
+					?>
+					<?php foreach($rows as $row):?>
+					<?php if($row['movie_status']==1){
+							$row['movie_status']='显示';
+						}else{
+							$row['movie_status']='隐藏';
+						}
+						$movie_tags = explode(" ",$row['movie_tag']);
+						?>
+                    <tr>
+                        <td><?php echo $row['movie_id'];?></td>
+                        <td><?php echo $row['movie_name'];?></td>
+                        <td><?php echo $row['movie_status'];?></td>
+                        <td><?php echo $row['movie_visit'];?></td>
+                        <td><?php echo $row['movie_player_time'];?></td>
+                        <td>
+                        	<?php foreach($movie_tags as $tag):?>
+                            <span class="label <?php echo $rand[rand(0,4)]?>"><?php echo $tag;?></span>
+                        	<?php endForeach;?>
+						</td>
+						
+                        <td>
+                            <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal">修改</button>
+                           <a class="btn btn-default" href="index.php?p=Admin&c=Movie&a=remove&id=<?php echo $row['movie_id'];?>">删除</a>
+                        </td>
+                    </tr>
+					<?php endForeach;?>
+                </table>
+            </div>
+        </div>
+        <!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+                        <h4>修改分类</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form" method="post" action="index.php">
+							<div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">影片名称</label>    
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="movie_name" placeholder="影片名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">影片状态</label>    
+                                <div class="col-md-10">
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>显示
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">隐藏
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">影片标签</label>    
+                                <div class="col-md-10">
+                                <input type="text" class="form-control" id="movie_tag" placeholder="影片标签多个标签用空格隔开">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">播放地址</label>    
+                                <div class="col-md-10">
+                                <textarea name="movie_url" type="text" id="movie_url" class="form-control"></textarea>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">后台推荐</label>    
+                                <div class="col-md-10">
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" id="inlineCheckbox1" value="option1"> 
+                                </label>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">影片简介</label>    
+                            <div class="col-md-10">
+                                <textarea type="text" class="form-control" id="movie_intro"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                             <label for="inputEmail3" class="col-sm-2 control-label"></label>    
+                                <div class="col-md-10"><button class="btn btn-default">确定</button></div>
+                            </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>后台登录</title>
+            <!-- 最新 Bootstrap 核心 CSS 文件 -->
+            <link rel="stylesheet" href="Public/bootstrap/css/bootstrap.min.css">
+            <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            <script src="Public/bootstrap/js/jquery.min.js"></script>
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+            <script src="Public/bootstrap/js/bootstrap.min.js"></script>
+            <style>
+                #row {
+                    margin-top: 20px;                    
+                }
+                #label {
+                    font-family: "宋体";
+                    font-size: 14px;
+                }
+                #category {
+                    width: 200px;
+                    
+                }
+            </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row" id="row">
+                <form method="post" action="index.php?">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="movie_name">影片名称:</label>
+                            <input type="text" class="form-control" id="movie_name" placeholder="影片名称">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="movie_status">影片状态:</label><br />
+                            <label for="radio1" id="label">显示:
+                                <input type="radio"  id="radio1" name="movie_status" value='Y' CHECKED/>
+                            </label>
+                            <label for="radio2" id="label">隐藏:
+                                <input type="radio" id="radio2" name="movie_status" value='N'/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="movie_tag">影片标签:</label>
+                         <input type="text" class="form-control" id="movie_tag" placeholder="影片标签多个标签用空格隔开">
+                    </div>  
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="movie_url">播放器地址:</label>
+                            <textarea name="movie_url" type="text" id="movie_url" class="form-control"></textarea>
+                        </div>
+                    </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                            <label for="exampleInputFile">上传影片封面:</label>
+                            <input type="file" id="exampleInputFile">
+<!--                              <span class="label label-warning" style="margin-top:10px;">封面大小为110×150px</span>-->
+                              <div class="alert alert-success" style="margin-top:10px;">封面大小为110×150px</div>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">                    
+                            <label for="movie_visit">播放次数初始值:</label>      
+                            <input name="movie_visit" type="text" class="form-control" placeholder="设置影片的播放量初始值">
+                        </div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="fotm-group">
+                            <label>管理员推荐:</label><br/>
+                            <label for="movie_recommend_admin"><input name="movie_recommend_admin" id="movie_recommend_admin" type="checkbox" value="Y">管理员推荐
+                        </div>
+                    </div>
+                        
+                        <div class="col-md-12">   
+                            <div class="form-group"> 
+                                <label>播放时间:</label>
+                                <input name="movie_player_time" class="form-control" type="text" value="00:00">
+                        </div>    
+                    </div>
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="movie_intro">影片介绍:</label>
+                         <textarea type="text" class="form-control" id="movie_intro"></textarea>
+                    </div>  
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>影片分类:</label>
+                            <select id="category">
+                                <option>高清</option>
+                                <option>标清</option>
+                                <option>模糊</option>
+                                <option>马赛克</option>
+                            </select>
+                        </div>        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
