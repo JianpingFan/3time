@@ -34,7 +34,7 @@
                     </tr>
 					<?php $rand = array('label-default','label-primary','label-success','label-info','label-warning')
 					?>
-					<?php foreach($rows as $row):?>
+					<?php foreach($rows as $key=>$row):?>
 					<?php if($row['movie_status']==1){
 							$row['movie_status']='显示';
 						}else{
@@ -55,27 +55,20 @@
 						</td>
 						
                         <td>
-                            <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal">修改</button>
-                           <a class="btn btn-default" href="index.php?p=Admin&c=Movie&a=remove&id=<?php echo $row['movie_id'];?>">删除</a>
-                        </td>
-                    </tr>
-					<?php endForeach;?>
-                </table>
-            </div>
-        </div>
-        <!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#myModal<?php echo $key;?>">修改</button>
+                             <!-- Modal -->
+		<div class="modal fade" id="myModal<?php echo $key;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
                         <h4>修改分类</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" role="form" method="post" action="index.php">
+						<form class="form-horizontal" role="form" method="post" action="index.php?p=Admin&c=Movie&a=update&id=<?php echo $row['movie_id']; ?>">
 							<div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">影片名称</label>    
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="movie_name" placeholder="影片名称">
+                                    <input type="text" class="form-control" id="movie_name" placeholder="影片名称" name="movie_name" value="<?php echo $row['movie_name'];?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -83,12 +76,18 @@
                                 <div class="col-md-10">
                                 <div class="radio">
                                   <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>显示
+                                    <input type="radio" name="movie_status" id="optionsRadios1" value="1" <?php if($row['movie_status']=="显示"){
+							echo "checked";
+						}
+						?>>显示
                                   </label>
                                 </div>
                                 <div class="radio">
                                   <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">隐藏
+                                    <input type="radio" name="movie_status" id="optionsRadios2" value="0" <?php if($row['movie_status']=="隐藏"){
+							echo "checked";
+						}
+						?>>隐藏
                                     </label>
                                 </div>
                                 </div>
@@ -96,37 +95,44 @@
                             <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">影片标签</label>    
                                 <div class="col-md-10">
-                                <input type="text" class="form-control" id="movie_tag" placeholder="影片标签多个标签用空格隔开">
+                                <input type="text" class="form-control" id="movie_tag" placeholder="影片标签多个标签用空格隔开" name="movie_tag" value="<?php foreach($movie_tags as $tag){echo $tag.' '; }?>">
                                     </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">播放地址</label>    
                                 <div class="col-md-10">
-                                <textarea name="movie_url" type="text" id="movie_url" class="form-control"></textarea>
+                                <textarea name="movie_url" type="text" id="movie_url" class="form-control" name="movie_url"><?php echo $row['movie_url'] ;?></textarea>
                                     </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">后台推荐</label>    
                                 <div class="col-md-10">
                                 <label class="checkbox-inline">
-                                  <input type="checkbox" id="inlineCheckbox1" value="option1"> 
+                                  <input type="checkbox" id="inlineCheckbox1" value="Y" name="movie_recommend_admin" <?php if($row['movie_recommend_admin']=="Y"){echo 'checked';}?> > 
                                 </label>
                                     </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">影片简介</label>    
                             <div class="col-md-10">
-                                <textarea type="text" class="form-control" id="movie_intro"></textarea>
+                                <textarea type="text" class="form-control" id="movie_intro" name="movie_intro"><?php echo $row['movie_intro'];?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                              <label for="inputEmail3" class="col-sm-2 control-label"></label>    
-                                <div class="col-md-10"><button class="btn btn-default">确定</button></div>
+                                <div class="col-md-10"><button class="btn btn-default" type="submit">确定</button></div>
                             </div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+						   <a class="btn btn-default" href="index.php?p=Admin&c=Movie&a=remove&id=<?php echo $row['movie_id'];?>">删除</a>
+                        </td>
+                    </tr>
+					<?php endForeach;?>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

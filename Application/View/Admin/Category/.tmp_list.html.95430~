@@ -25,16 +25,33 @@
                     <th>分类名称</th>
                     <th>操作</th>
                 </tr>
-				<?php foreach($rows as $key=>$row):?>
+				<?php foreach($rows as $row):?>
                 <tr>
                     <td><?php echo $row['category_id'];?></td>
                     <td><?php echo $row['create_name'];?></td>
                     <td>
                         		<!-- Button trigger modal -->
-		<button class="btn btn-default" data-toggle="modal" data-target="#myModal<?php echo $key;?>">修改
+		<button class="btn btn-default" data-toggle="modal" data-target="#myModal">修改
 		</button>
-          <!-- Modal -->
-		<div class="modal fade" id="myModal<?php echo $key;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <a class="btn btn-default" href="index.php?p=Admin&c=Category&a=remove&id=<?php echo $row['category_id'];?>">删除</a>
+                    </td>
+                </tr>
+			<?php endForeach;?>
+            </table>
+            <ul class="pagination pagination-lg">
+                  <li><a href="#">&laquo;</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+        </div>
+            
+        </div>
+        <!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -60,21 +77,4 @@
 				</div>
 			</div>
 		</div>
-						<a class="btn btn-default" href="index.php?p=Admin&c=Category&a=remove&id=<?php echo $row['category_id'];?>">删除</a>
-                    </td>
-                </tr>
-			<?php endForeach;?>
-            </table>
-            <ul class="pagination pagination-lg">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
-        </div>
-            
-        </div>
     </body>

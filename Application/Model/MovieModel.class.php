@@ -27,6 +27,14 @@ class MovieModel extends Model{
 	public function remove($id){
 		return $this->deleteByPK($id);
 	}
+	
+	/**
+	 * 根据主键id进行跟新操作
+	 * @param unknown $movie_id
+	 */
+	public function update($data){
+		return $this->updateData($data);
+	}
 }
 
 
