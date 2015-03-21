@@ -1,0 +1,112 @@
+<!doctype>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>后台登录</title>
+            <!-- 最新 Bootstrap 核心 CSS 文件 -->
+            <link rel="stylesheet" href="Public/bootstrap/css/bootstrap.min.css">
+            <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            <script src="Public/bootstrap/js/jquery.min.js"></script>
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+            <script src="Public/bootstrap/js/bootstrap.min.js"></script>
+            <style>
+                #row {
+                    margin-top: 20px;                    
+                }
+                #table {
+                    font-size: 12px;
+                }
+            </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row" id="row">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>权限名称</th>
+                        <th>所有权限</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>    
+                        <td>超级管理员</td>    
+                        <td>A,B,C,D,E,F,G,H,I,J,K,L,M,</td>    
+                        <td>
+                            <button class="btn btn-default" data-toggle="modal" data-target="#myModal">修改</button><a class="btn btn-default" href="#">删除</a>
+                        </td>    
+                    <tr/>
+                </table>
+            </div>
+        </div>
+         <!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+                        <h4>权限修改</h4>
+					</div>
+					<div class="modal-body">
+<form class="form-horizontal" role="form" method="post" action="index.php">
+      <div class="form-group">
+    <label for="inputgroup" class="col-md-2 control-label">组名</label>
+    <div class="col-md-6">
+      <input type="text" class="form-control" id="inputgroup" placeholder="输入组名" value="超级管理员">
+    </div>
+  </div>
+    <div class="form-group">
+        <label for="inputgroup" class="col-md-2 control-label">选择权限</label>
+        <div class="col-md-6">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox1" value="A"> 添加影片
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox2" value="B"> 删除影片
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="C"> 修改影片
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="D"> 添加分类
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="E"> 修改分类
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="F"> 删除分类
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="G"> 权限设置
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="H"> 查看管理员
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="I"> 添加管理员
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="J"> 修改管理员
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="K"> 删除管理员
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="L"> 用户组权限设置
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="M"> 查看注册用户
+            </label>
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-2"></div>
+                <button class="btn btn-default">确定</button>
+        </div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+    </body>
