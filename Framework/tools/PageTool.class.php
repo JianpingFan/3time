@@ -1,5 +1,5 @@
 <?php
-/**
+ /**
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2015/3/16 0016
@@ -80,4 +80,4 @@ PAGE_HTML;
 
     return $page_html;
     }
-}
+} 

@@ -53,6 +53,8 @@ class Framework {
         /**
          * 从$_GET或者$_REQUEST中删除  p  ,c  , a 参数
          */
+        $GLOBALS['c'] = $_GET['c'];
+        $GLOBALS['a'] = $_GET['a'];
         unset($_GET['p']);
         unset($_GET['c']);
         unset($_GET['a']);

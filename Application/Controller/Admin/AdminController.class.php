@@ -1,5 +1,5 @@
 <?php
-class AdminController extends Controller{
+class AdminController extends PlatformController{
 	public function adminAction(){
 		$this->display("admin.html");
 	}

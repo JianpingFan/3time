@@ -1,7 +1,7 @@
 <?php
 
 
-class SystemController extends Controller{
+class SystemController extends PlatformController{
 
 	public function add_adminAction(){
 		if(empty($_POST)){

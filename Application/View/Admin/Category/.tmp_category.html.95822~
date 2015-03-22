@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>后台登录</title>
+            <!-- 最新 Bootstrap 核心 CSS 文件 -->
+            <link rel="stylesheet" href="Public/bootstrap/css/bootstrap.min.css">
+            <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            <script src="Public/bootstrap/js/jquery.min.js"></script>
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+            <script src="Public/bootstrap/js/bootstrap.min.js"></script>
+            <style>
+                #row {
+                    margin-top: 20px;
+                }
+            </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row" id="row">
+                <form class="form-horizontal" action="index.php?p=Admin&c=Category&a=insert" role="form" method="post">
+                  <div class="form-group">
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" id="category" placeholder="分类名称" name="categoryName">
+                        </div>
+                      <div class="col-sm-5">
+                            <button type="submit" class="btn btn-default">添加</button>
+                        </div>
+                </div>
+                </form>
+            </div>
+            <div class="row">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th>id</th>
+                        <th>分类名称</th>
+                    </tr>
+					<?php foreach($rows as $row):?>
+                    <tr>
+                        <td><?php echo $row['category_id'];?></td>
+                        <td><?php echo $row['create_name'];?></td>
+                    </tr>
+					<?php endForeach;?>
+                </table>
+            </div>
+        </div>
+    </body>

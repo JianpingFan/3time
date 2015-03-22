@@ -18,6 +18,13 @@ class GroupModel extends Model{
 	public function getList(){
 		return $this->getAll();
 	}
+	/**
+	 * 根据条件查询出group表的group_wegit的值
+	 * @param unknown $condition
+	 */
+	public function get_group_wegit($condition){
+		return $this->getRow($condition);
+	}
 
 	/**
 	 * 更新用户组方法

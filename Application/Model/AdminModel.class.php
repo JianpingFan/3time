@@ -2,6 +2,11 @@
 
 
 class AdminModel extends Model{
+	
+	public function check($username,$password){
+           return $this->count("admin_mail='{$username}' and admin_passwd='{$password}'");
+	}
+	
 	/**
 	 * 添加管理员方法
 	 */
@@ -17,6 +22,9 @@ class AdminModel extends Model{
 		return $this->getAll();
 	}
 	
+	public function getAdmin_group($condition){
+		return $this->getAll($condition);
+	}
 	/**
 	 * 更新管理员的方法
 	 */

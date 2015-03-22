@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>后台主页</title>
+</head>
+
+<frameset rows="70,*" cols="*" frameborder="no" border="0" framespacing="0">
+  <frame src="index.php?p=Admin&c=Admin&a=top" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+  <frameset cols="260px,*" frameborder="no" border="0" framespacing="0">
+    <frame src="index.php?p=Admin&c=Admin&a=menu" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
+    <frame src="index.php?p=Admin&c=Admin&a=main" name="mainFrame" id="mainFrame" title="mainFrame" />
+  </frameset>
+</frameset>
+
+    <body>
+</body>
+</html>

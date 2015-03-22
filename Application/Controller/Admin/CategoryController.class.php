@@ -1,9 +1,9 @@
 <?php
-class CategoryController extends Controller{
+class CategoryController extends PlatformController{
 	/**
-	 * 分类相关的方法
+	 * 分类添加页面
 	 */
-	public function CategoryAction(){
+	public function categoryAction(){
 		$categoryModel = new CategoryModel();
 		
 		$rows = $categoryModel->getList();

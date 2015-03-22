@@ -1,5 +1,5 @@
 <?php
-class MovieController extends Controller{
+class MovieController extends PlatformController{
 	/**
 	 * 添加页面展示的方法
 	 */
